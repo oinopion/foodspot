@@ -10,7 +10,10 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ('status',)
     search_fields = ('title', 'slug')
     readonly_fields = ('status_changed', 'modified')
-    fields = ('title', 'status', 'slug', 'created', 'text', 'status_changed', 'modified')
+    fields = (
+        'title', 'status', 'slug', 'created', 'excerpt', 'text',
+        'status_changed', 'modified',
+    )
 
 
 admin.site.register(Article, ArticleAdmin)

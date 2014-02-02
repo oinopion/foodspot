@@ -6,4 +6,4 @@ register = template.Library()
 
 @register.simple_tag(name='markdown')
 def render_markdown(text):
-    return markdown.markdown(text, extensions=['codehilite'])
+    return markdown.markdown(text)

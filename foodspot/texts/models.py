@@ -18,8 +18,16 @@ class Article(StatusModel):
     )
 
     title = models.CharField(_('title'), max_length=200)
-    slug = models.SlugField(_('slug'), max_length=100)
-    text = models.TextField(_('text'))
+    slug = models.SlugField(_('slug'), max_length=100, help_text=_(
+        'Unique identifier of the post, will be part of the URL.'
+    ))
+    excerpt = models.TextField(_('excerpt'), max_length=400, help_text=_(
+        'Short abstract of contents, will be displayed on list and main pages. '
+        'Use Markdown syntax.'
+    ))
+    text = models.TextField(_('text'), help_text=_(
+        'Use Markdown syntax.'
+    ))
     created = AutoCreatedField(_('created at'), editable=True)
     modified = AutoLastModifiedField(_('last modified at'))
 
