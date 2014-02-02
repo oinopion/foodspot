@@ -1,5 +1,5 @@
 *.pyc
-conf/hauru.conf
+conf/foodspot.conf
 conf/gun.py
 public
 media

@@ -1,11 +1,11 @@
-# Django settings for hauru project
+# Django settings for foodspot project
 import os
 import configparser
 import dj_database_url
 from django.core.exceptions import ImproperlyConfigured
 
 BASE = os.path.dirname(os.path.dirname(__file__))
-CONFIG_PATH = os.path.join(BASE, 'conf', 'hauru.conf')
+CONFIG_PATH = os.path.join(BASE, 'conf', 'foodspot.conf')
 if not os.path.exists(CONFIG_PATH):
     raise ImproperlyConfigured('Could not read config: %s' % CONFIG_PATH)
 
@@ -18,8 +18,8 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = [('Tomek Paczkowski', 'tomek@hauru.eu')]
 MANAGERS = ADMINS
 
-ROOT_URLCONF = 'hauru.urls'
-WSGI_APPLICATION = 'hauru.wsgi.application'
+ROOT_URLCONF = 'foodspot.urls'
+WSGI_APPLICATION = 'foodspot.wsgi.application'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
@@ -29,7 +29,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'hauru.texts',
+    'foodspot.texts',
 )
 
 MIDDLEWARE_CLASSES = (
