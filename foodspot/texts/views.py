@@ -1,16 +1,18 @@
+from django.conf import settings
 from django.http import Http404
 from django.views.generic import DetailView, ListView
 from .models import Article
 
 
-class ArticleView(DetailView):
-    queryset = Article.published.all()
-    context_object_name = 'article'
-
-
 class ArticleListView(ListView):
     queryset = Article.published.all()
     context_object_name = 'articles'
+    paginate_by = settings.MAX_ARTICLES_PER_PAGE
+
+
+class ArticleView(DetailView):
+    queryset = Article.published.all()
+    context_object_name = 'article'
 
 
 class ArticlePreviewView(DetailView):

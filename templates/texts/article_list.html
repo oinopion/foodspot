@@ -2,7 +2,7 @@
 {% load markdown_tags %}
 
 {% block title %}
-    Texts | {{ block.super }}
+    All Texts | {{ block.super }}
 {% endblock %}
 
 {% block body %}
@@ -17,7 +17,24 @@
                 {% markdown article.excerpt %}
             </li>
         {% empty %}
-            <li><span class="time">This page intentionally left blank.</span></li>
+            <li><span class="time">This page intentionally left blank.</span>
+            </li>
         {% endfor %}
     </ul>
+
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+                &larr; Previous page
+            </a>
+        {% else %}
+            <span class="inactive" style="color: #7e8aa2">&larr; Previous page</span>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next page &rarr;</a>
+        {% else %}
+            <span class="inactive" style="color: #7e8aa2">Next page &rarr;</span>
+        {% endif %}
+    </div>
 {% endblock %}

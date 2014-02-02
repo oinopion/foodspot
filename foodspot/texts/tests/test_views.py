@@ -1,5 +1,7 @@
+from unittest import mock
 from django.test import TestCase
 from .factories import ArticleFactory, PublishedArticleFactory, DraftArticleFactory
+from foodspot.texts.views import ArticleListView
 
 
 class ArticleViewTest(TestCase):
@@ -21,7 +23,7 @@ class ArticleViewTest(TestCase):
 
 class ArticleListViewTest(TestCase):
     def url(self):
-        return '/texts/'
+        return '/'
 
     def test_renders_template(self):
         PublishedArticleFactory.create()
@@ -36,6 +38,12 @@ class ArticleListViewTest(TestCase):
         resp = self.client.get(self.url())
         self.assertContains(resp, published.title)
         self.assertNotContains(resp, draft.title)
+
+    def test_limits_posts(self):
+        PublishedArticleFactory.create_batch(2)
+        with mock.patch.object(ArticleListView, 'paginate_by', 1):
+            resp = self.client.get(self.url())
+        self.assertEqual(1, len(resp.context['articles']))
 
 
 class ArticlePreviewViewTest(TestCase):

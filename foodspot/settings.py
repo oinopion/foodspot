@@ -94,3 +94,5 @@ LOGGING = {
         },
     }
 }
+
+MAX_ARTICLES_PER_PAGE = 10
