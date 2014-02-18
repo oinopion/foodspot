@@ -51,8 +51,8 @@ DATABASES = {
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'pl-pl'
+TIME_ZONE = 'Europe/Warsaw'
 
 TEMPLATE_DIRS = [os.path.join(BASE, 'templates')]
 TEMPLATE_LOADERS = (
