@@ -14,6 +14,18 @@ class ArticleAdmin(admin.ModelAdmin):
         'title', 'status', 'slug', 'created', 'excerpt', 'text',
         'status_changed', 'modified',
     )
+    actions = ['publish_articles']
+
+    def publish_articles(self, request, queryset):
+        count = queryset.count()
+        if count > 40:
+            msg = 'Please select less than 20 posts (%d were selected).'
+            self.message_user(request, msg % count)
+            return
+        for article in queryset:
+            article.publish()
+        self.message_user(request, 'Published articles: %d' % count)
+    publish_articles.short_description = 'Mark selected articles as published'
 
 
 admin.site.register(Article, ArticleAdmin)
