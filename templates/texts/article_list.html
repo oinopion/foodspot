@@ -6,21 +6,45 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Wszystkie wpisy</h1>
-    <ul class="articles">
-        {% for article in articles %}
-            <li>
-                <span class="time">{{ article.created|date:"Y-m" }}</span>
-                <a href="{{ article.get_absolute_url }}">
-                    {{ article.title }}
-                </a>
-                {% markdown article.excerpt %}
-            </li>
-        {% empty %}
-            <li><span class="time">This page intentionally left blank.</span>
-            </li>
-        {% endfor %}
-    </ul>
+    <section class="posts" xmlns="http://www.w3.org/1999/html">
+        <h1 class="content-subhead">
+            Wszystie wpisy z roku {{ year|date:"Y" }}
+        </h1>
 
-    {% include 'texts/_pagination.html' %}
+        {% for article in articles %}
+            <article class="post-blurb">
+                <h2 class="post-title">
+                    <a href="{{ article.get_absolute_url }}">
+                        {{ article.title }}
+                    </a>
+                </h2>
+
+                <p class="post-meta">
+                    {{ article.created|date }}
+                </p>
+            </article>
+        {% endfor %}
+
+        <nav>
+        {% if previous_year %}
+            {% with prev=previous_year|date:"Y" %}
+                <p>
+                    <a href="{% url 'article_list' %}?year={{ prev }}">
+                        Wpisy z {{ prev }} roku
+                    </a>
+                </p>
+            {% endwith %}
+        {% endif %}
+
+        {% if next_year %}
+            {% with next=next_year|date:"Y" %}
+                <p>
+                    <a href="{% url 'article_list' %}?year={{ next }}">
+                        Wpisy z {{ next }} roku
+                    </a>
+                </p>
+            {% endwith %}
+        {% endif %}
+        </nav>
+    </section>
 {% endblock %}
