@@ -11,4 +11,6 @@ deps: venv
 venv:
 	virtualenv venv --python ${PYTHON}
 
-
+clean:
+	rm -rf venv
+	rm -rf public
