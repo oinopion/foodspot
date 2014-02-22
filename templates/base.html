@@ -11,12 +11,25 @@
 {% block body %}
     <div class="sidebar pure-u-1-4">
         <header class="brand">
-            <h1>Idziemy jeść</h1>
+            <h1>
+                <a href="/">
+                    Idziemy jeść
+                </a>
+            </h1>
 
             <h2>
                 Gdzie dobrze zjeść w Krakowie.
                 Subiektywny przewodnik Oli&nbsp;i&NonBreakingSpace;Tomka
             </h2>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="{% url 'article_list' %}">
+                            Lista wpisów
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </header>
     </div>
 

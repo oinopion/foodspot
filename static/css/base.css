@@ -9,12 +9,6 @@ h1 a, h2 a {
     color: inherit;
 }
 
-h1 a:hover:after, h2 a:hover:after {
-    content: "¶";
-    color: blue;
-    font-size: 90%;
-}
-
 .brand {
     text-align: center;
     top: auto;
@@ -81,7 +75,7 @@ h1 a:hover:after, h2 a:hover:after {
 
 .content {
     padding: 2em 1em 0;
-    max-width: 50em;
+    max-width: 48em;
 }
 
 .post {
@@ -160,9 +154,8 @@ h1 a:hover:after, h2 a:hover:after {
     }
 }
 
-
 .tombstone {
-    margin: 2em auto 3em;
+    margin: 2em auto 1em;
     width: 80%;
     height: 1px;
     border: none;
