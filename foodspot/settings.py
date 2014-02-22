@@ -30,6 +30,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.sites',
+    'django.contrib.redirects',
     'debug_toolbar',
     'foodspot.texts',
 )
@@ -41,6 +43,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 )
 
 ALLOWED_HOSTS = ['*']
@@ -77,6 +80,8 @@ STATICFILES_STORAGE = \
 STATIC_ROOT = config.get(
     'files', 'static', fallback=os.path.join(BASE, 'public'))
 STATIC_URL = '/static/'
+
+SITE_ID = 1
 
 LOGGING = {
     'version': 1,
