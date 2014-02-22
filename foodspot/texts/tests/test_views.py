@@ -23,7 +23,7 @@ class ArticleViewTest(TestCase):
 
 class ArticleListViewTest(TestCase):
     def url(self):
-        return '/'
+        return '/texts/'
 
     def test_renders_template(self):
         PublishedArticleFactory.create()

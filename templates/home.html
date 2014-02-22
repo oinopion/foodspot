@@ -1,52 +1,11 @@
-{% extends 'skeleton.html' %}
+{% extends 'base.html' %}
 
-{% block title %}
-    Tomek Paczkowski | {{ block.super }}
-{% endblock %}
+{% block content %}
+    <section class="posts">
+        <h1 class="content-subhead">Ostatnie wpisy</h1>
 
-{% block head %}
-    <style>
-        body {
-            background: #282828;
-            color: #e2e2e5;
-            font-size: 2em;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-
-        h1 {
-            color: #b1d631;
-            font-size: 220%;
-            margin: 0.9em 0.2em;
-            border-bottom: 1px solid #555;
-            font-weight: normal;
-        }
-
-        p {
-            margin: 0.5em 0 0 1.1em
-        }
-
-        a {
-            color: #80a0ff;
-            text-decoration: none
-        }
-
-        span {
-            color: #7e8aa2;
-        }
-    </style>
-
-    <link href='http://fonts.googleapis.com/css?family=Lato|Josefin+Sans|Inconsolata' rel='stylesheet' type='text/css'>
-{% endblock %}
-
-
-{% block body %}
-    <h1>Tomek Paczkowski</h1>
-
-    <p>Software developer
-    <p>Geek and technology enthusiast
-    <p><span>Twitter:</span>
-        <a href="https://twitter.com/oinopion">@oinopion</a>
-    <p><span>GitHub:</span>
-        <a href="https://github.com/oinopion">oinopion</a>
-
+        {% for article in latest_articles %}
+            {% include 'texts/_post.html' with article=article %}
+        {% endfor %}
+    </section>
 {% endblock %}

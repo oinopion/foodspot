@@ -5,18 +5,7 @@
     {{ article.title }} | {{ block.super }}
 {% endblock %}
 
-{% block body %}
-    <article>
-        <h1>{{ article.title }}</h1>
-
-        <p class="byline">
-            {% if article.is_published %}
-                <time>{{ article.created|date }}</time>
-            {% else %}
-                <time>This article has not been published yet</time>
-            {% endif %}
-        </p>
-        {% markdown article.text %}
-    </article>
+{% block content %}
+    {% include 'texts/_post.html' %}
     <hr class="tombstone">
 {% endblock %}

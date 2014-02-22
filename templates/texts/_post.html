@@ -1,0 +1,19 @@
+{% load markdown_tags %}
+
+<article class="post">
+    <header>
+        <h2 class="post-title">
+            <a href="{{ article.get_absolute_url }}">
+                {{ article.title }}
+            </a>
+        </h2>
+
+        <p class="post-meta">
+            {{ article.created|date }}
+        </p>
+    </header>
+
+    <div class="post-description">
+        {% markdown article.text %}
+    </div>
+</article>

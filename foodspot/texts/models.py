@@ -41,6 +41,7 @@ class Article(StatusModel):
 
     class Meta:
         ordering = ('-created',)
+        get_latest_by = 'created'
 
     @property
     def is_published(self):
