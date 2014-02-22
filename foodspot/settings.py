@@ -3,6 +3,7 @@ import os
 import configparser
 import dj_database_url
 from django.core.exceptions import ImproperlyConfigured
+import django_cache_url
 
 BASE = os.path.dirname(os.path.dirname(__file__))
 CONFIG_PATH = os.path.join(BASE, 'conf', 'foodspot.conf')
@@ -47,6 +48,10 @@ SECRET_KEY = config.get('general', 'secret_key')
 
 DATABASES = {
     'default': dj_database_url.parse(config.get('db', 'default'))
+}
+
+CACHES = {
+    'default': django_cache_url.parse(config.get('cache', 'default'))
 }
 
 USE_I18N = True
@@ -95,5 +100,3 @@ LOGGING = {
         },
     }
 }
-
-MAX_ARTICLES_PER_PAGE = 10

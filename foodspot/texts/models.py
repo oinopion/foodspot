@@ -2,7 +2,7 @@ from datetime import timedelta
 from django.db import models
 from django.db.models import permalink
 from django.core import signing
-from django.utils.dateparse import parse_date
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from model_utils import Choices
 from model_utils.fields import AutoCreatedField, AutoLastModifiedField
@@ -70,3 +70,9 @@ class Article(StatusModel):
             kwargs = {'slug': self.slug, 'signature': self.signed_id()}
             return 'article_preview', (), kwargs
 
+    def cache_key(self):
+        if not self.pk:
+            pk, timestamp = None, timezone.now()
+        else:
+            pk, timestamp = self.pk, self.modified
+        return "%s|%s" % (pk, timestamp.isoformat())

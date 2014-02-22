@@ -1,20 +1,35 @@
-from django.conf import settings
-from django.http import Http404
+from django.http import Http404, HttpResponse
+from django.template.loader import render_to_string
 from django.utils import timezone
-from django.views.generic import DetailView, ListView, YearArchiveView
+from django.shortcuts import get_object_or_404
+from django.core.cache import cache
+from django.views.decorators.cache import cache_control, never_cache
+from django.views.generic import YearArchiveView
+
 from .models import Article
 
 
-class ArticleListView(ListView):
-    queryset = Article.published.all()
-    context_object_name = 'articles'
-    paginate_by = settings.MAX_ARTICLES_PER_PAGE
+@cache_control(max_age=60 * 5, public=True)
+def article_detail(request, slug):
+    article = get_object_or_404(Article.published, slug=slug)
+    return render_article(article, 'texts/article_detail.html', {
+        'article': article,
+    })
+
+
+@never_cache
+def article_preview(request, slug, signature):
+    article = get_object_or_404(Article.objects, slug=slug)
+    if not article.is_signed_id(signature):
+        raise Http404('Provided signature is not valid')
+    return render_article(article, 'texts/article_detail.html', {
+        'article': article,
+    })
 
 
 class ArticlesByYearView(YearArchiveView):
     queryset = Article.published.all()
     context_object_name = 'articles'
-    template_name_suffix = '_list'
     make_object_list = True
     date_field = 'created'
 
@@ -26,26 +41,13 @@ class ArticlesByYearView(YearArchiveView):
             return str(now.year)
 
 
-class ArticleView(DetailView):
-    queryset = Article.published.all()
-    context_object_name = 'article'
+article_by_year = ArticlesByYearView.as_view()
 
 
-class ArticlePreviewView(DetailView):
-    queryset = Article.objects.all()
-    context_object_name = 'article'
-
-    def get_object(self, queryset=None):
-        article = super().get_object(queryset=queryset)
-        if not article.is_signed_id(self.signature):
-            raise Http404('Provided signature is not valid')
-        return article
-
-    @property
-    def signature(self):
-        return self.kwargs.get('signature', '')
-
-
-article_list = ArticlesByYearView.as_view()
-article_detail = ArticleView.as_view()
-article_preview = ArticlePreviewView.as_view()
+def render_article(article, template_name, context):
+    key = '%s|%s' % (article.cache_key(), template_name)
+    content = cache.get(key)
+    if not content:
+        content = render_to_string(template_name, context)
+        cache.set(key, content)
+    return HttpResponse(content)

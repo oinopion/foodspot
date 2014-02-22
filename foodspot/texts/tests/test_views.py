@@ -1,7 +1,6 @@
-from unittest import mock
+from datetime import date
 from django.test import TestCase
-from .factories import ArticleFactory, PublishedArticleFactory, DraftArticleFactory
-from foodspot.texts.views import ArticleListView
+from .factories import PublishedArticleFactory, DraftArticleFactory
 
 
 class ArticleViewTest(TestCase):
@@ -16,12 +15,12 @@ class ArticleViewTest(TestCase):
         self.assertIn('article', resp.context)
 
     def test_does_not_show_drafts(self):
-        article = ArticleFactory.create()
+        article = DraftArticleFactory.create()
         resp = self.client.get(self.url(article))
         self.assertEqual(404, resp.status_code)
 
 
-class ArticleListViewTest(TestCase):
+class ArticleByYearViewTest(TestCase):
     def url(self):
         return '/texts/'
 
@@ -29,21 +28,17 @@ class ArticleListViewTest(TestCase):
         PublishedArticleFactory.create()
         resp = self.client.get(self.url())
         self.assertEqual(200, resp.status_code)
-        self.assertTemplateUsed(resp, 'texts/article_list.html')
+        self.assertTemplateUsed(resp, 'texts/article_archive_year.html')
         self.assertIn('articles', resp.context)
+        year = date.today().replace(month=1, day=1)
+        self.assertEqual(year, resp.context['year'])
 
     def test_does_not_contain_drafts(self):
-        draft = ArticleFactory.create()
+        draft = DraftArticleFactory.create()
         published = PublishedArticleFactory()
         resp = self.client.get(self.url())
         self.assertContains(resp, published.title)
         self.assertNotContains(resp, draft.title)
-
-    def test_limits_posts(self):
-        PublishedArticleFactory.create_batch(2)
-        with mock.patch.object(ArticleListView, 'paginate_by', 1):
-            resp = self.client.get(self.url())
-        self.assertEqual(1, len(resp.context['articles']))
 
 
 class ArticlePreviewViewTest(TestCase):

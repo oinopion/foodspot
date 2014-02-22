@@ -29,7 +29,7 @@
         {% if previous_year %}
             {% with prev=previous_year|date:"Y" %}
                 <p>
-                    <a href="{% url 'article_list' %}?year={{ prev }}">
+                    <a href="{% url 'article_by_year' %}?year={{ prev }}">
                         Wpisy z {{ prev }} roku
                     </a>
                 </p>
@@ -39,7 +39,7 @@
         {% if next_year %}
             {% with next=next_year|date:"Y" %}
                 <p>
-                    <a href="{% url 'article_list' %}?year={{ next }}">
+                    <a href="{% url 'article_by_year' %}?year={{ next }}">
                         Wpisy z {{ next }} roku
                     </a>
                 </p>
