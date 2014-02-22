@@ -51,3 +51,8 @@ def render_article(article, template_name, context):
         content = render_to_string(template_name, context)
         cache.set(key, content)
     return HttpResponse(content)
+
+
+def render_articles(articles, template_name, context):
+    latest = sorted(articles, key=lambda a: a.modified, reverse=True)[0]
+    return render_article(latest, template_name, context)

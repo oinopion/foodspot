@@ -53,6 +53,7 @@ DATABASES = {
 CACHES = {
     'default': django_cache_url.parse(config.get('cache', 'default'))
 }
+CACHES['default']['TIMEOUT'] = None
 
 USE_I18N = True
 USE_L10N = True
