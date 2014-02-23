@@ -35,6 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.redirects',
+    'raven.contrib.django.raven_compat',
     'debug_toolbar',
     'foodspot.texts',
 )
@@ -88,26 +89,41 @@ STATIC_URL = '/static/'
 
 SITE_ID = 1
 
+RAVEN_CONFIG = {
+    'dsn': config.get('services', 'sentry_dsn'),
+}
+
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': (
+                '%(levelname)s %(asctime)s %(module)s '
+                '%(process)d %(thread)d %(message)s'
+            )
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+        'syslog': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.SysLogHandler',
+            'formatter': 'verbose',
+        },
     },
     'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
+        'django': {
+            'handlers': ['syslog'],
+            'propagate': False,
+            'level': 'INFO',
         },
-    }
+        '': {
+            'handlers': ['syslog'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+    },
 }
