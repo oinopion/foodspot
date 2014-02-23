@@ -1,5 +1,6 @@
 *.pyc
 conf/foodspot.conf
+conf/newrelic.ini
 conf/gun.py
 public
 media
