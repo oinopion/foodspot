@@ -36,7 +36,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.redirects',
     'raven.contrib.django.raven_compat',
-    'djorm_pool',
     'debug_toolbar',
     'foodspot.texts',
 )
