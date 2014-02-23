@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-22 20:54+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: foodspot/texts/models.py:17
+msgid "draft"
+msgstr "szkic"
+
+#: foodspot/texts/models.py:18
+msgid "published"
+msgstr "opublikowany"
+
+#: foodspot/texts/models.py:21
+msgid "title"
+msgstr "tytuł"
+
+#: foodspot/texts/models.py:22
+msgid "slug"
+msgstr "slug"
+
+#: foodspot/texts/models.py:23
+msgid "Unique identifier of the post, will be part of the URL."
+msgstr "Unikalny identyfikator wpisu, będzie częścią URLa."
+
+#: foodspot/texts/models.py:26
+msgid "excerpt"
+msgstr "fragment"
+
+#: foodspot/texts/models.py:27
+msgid ""
+"Short abstract of contents, will be displayed on list and main pages. Use "
+"Markdown syntax."
+msgstr ""
+"Krótke podsumowanie treści; będzie pokazane na stronie głównej oraz w "
+"archiwum. Należy użyć składni Markdown."
+
+#: foodspot/texts/models.py:31
+msgid "text"
+msgstr "tekst"
+
+#: foodspot/texts/models.py:32
+msgid "Use Markdown syntax."
+msgstr "Należy użyć składni Markdown."
+
+#: foodspot/texts/models.py:34
+msgid "created at"
+msgstr "sworzony"
+
+#: foodspot/texts/models.py:35
+msgid "last modified at"
+msgstr "ostatnio modyfikowany"
+
+#: foodspot/texts/models.py:43
+msgid "article"
+msgstr "artykuł"
+
+#: foodspot/texts/models.py:44
+msgid "articles"
+msgstr "artykuły"
+
+#: templates/base.html:13 templates/skeleton.html:10
+msgid "Page title"
+msgstr "Idziemy Jeść"
+
+#: templates/base.html:14
+msgid "Page blurb"
+msgstr ""
+"Gdzie dobrze zjeść w Krakowie.Subiektywny przewodnik Oli&nbsp;i&nbsp;Tomka"
+
+#: templates/base.html:20
+msgid "All texts"
+msgstr "Lista wpisów"
+
+#: templates/home.html:6
+msgid "Latest texts"
+msgstr "Ostatnie wpisy"
+
+#: templates/texts/article_archive_year.html:12
+#, python-format
+msgid "All texts from %(year)s"
+msgstr "Wszystie wpisy z roku %(year)s"
+
+#: templates/texts/article_archive_year.html:34
+#, python-format
+msgid "Texts from %(prev)s"
+msgstr "Wpisy z roku %(prev)s"
+
+#: templates/texts/article_archive_year.html:44
+#, python-format
+msgid "Texts from %(next)s"
+msgstr "Wpisy z roku %(next)s"

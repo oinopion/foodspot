@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
     <section class="posts">
-        <h1 class="content-subhead">Ostatnie wpisy</h1>
+        <h1 class="content-subhead">{% trans "Latest texts" %}</h1>
 
         {% for article in latest_articles %}
             {% include 'texts/_post.html' with article=article %}

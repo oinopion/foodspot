@@ -40,6 +40,8 @@ class Article(StatusModel):
     signer = signing.TimestampSigner(salt="article")
 
     class Meta:
+        verbose_name = _('article')
+        verbose_name_plural = _('articles')
         ordering = ('-created',)
         get_latest_by = 'created'
 
@@ -76,3 +78,6 @@ class Article(StatusModel):
         else:
             pk, timestamp = self.pk, self.modified
         return "%s|%s" % (pk, timestamp.isoformat())
+
+    def __str__(self):
+        return self.title

@@ -16,7 +16,10 @@ config.read(CONFIG_PATH)
 DEBUG = config.getboolean('general', 'debug')
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = [('Tomek Paczkowski', 'tomek@hauru.eu')]
+ADMINS = [
+    ('Tomek Paczkowski', 'tomek@hauru.eu'),
+    ('Ola Sendecka', 'ola@hauru.eu'),
+]
 MANAGERS = ADMINS
 
 ROOT_URLCONF = 'foodspot.urls'
@@ -63,6 +66,8 @@ USE_L10N = True
 USE_TZ = True
 LANGUAGE_CODE = 'pl-pl'
 TIME_ZONE = 'Europe/Warsaw'
+
+LOCALE_PATHS = [os.path.join(BASE, 'locale')]
 
 TEMPLATE_DIRS = [os.path.join(BASE, 'templates')]
 TEMPLATE_LOADERS = (

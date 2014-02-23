@@ -4,11 +4,12 @@
 {% block title %}
     All Texts | {{ block.super }}
 {% endblock %}
+{% load i18n %}
 
 {% block content %}
     <section class="posts" xmlns="http://www.w3.org/1999/html">
         <h1 class="content-subhead">
-            Wszystie wpisy z roku {{ year|date:"Y" }}
+            {% blocktrans with year=year|date:"Y" %}All texts from {{ year }}{% endblocktrans %}
         </h1>
 
         {% for article in articles %}
@@ -26,25 +27,25 @@
         {% endfor %}
 
         <nav>
-        {% if previous_year %}
-            {% with prev=previous_year|date:"Y" %}
-                <p>
-                    <a href="{% url 'article_by_year' %}?year={{ prev }}">
-                        Wpisy z {{ prev }} roku
-                    </a>
-                </p>
-            {% endwith %}
-        {% endif %}
+            {% if previous_year %}
+                {% with prev=previous_year|date:"Y" %}
+                    <p>
+                        <a href="{% url 'article_by_year' %}?year={{ prev }}">
+                            {% blocktrans %}Texts from {{ prev }}{% endblocktrans %}
+                        </a>
+                    </p>
+                {% endwith %}
+            {% endif %}
 
-        {% if next_year %}
-            {% with next=next_year|date:"Y" %}
-                <p>
-                    <a href="{% url 'article_by_year' %}?year={{ next }}">
-                        Wpisy z {{ next }} roku
-                    </a>
-                </p>
-            {% endwith %}
-        {% endif %}
+            {% if next_year %}
+                {% with next=next_year|date:"Y" %}
+                    <p>
+                        <a href="{% url 'article_by_year' %}?year={{ next }}">
+                            {% blocktrans %}Texts from {{ next }}{% endblocktrans %}
+                        </a>
+                    </p>
+                {% endwith %}
+            {% endif %}
         </nav>
     </section>
 {% endblock %}
