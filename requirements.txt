@@ -1,10 +1,12 @@
 Django==1.6.2
 Markdown==2.4
+SQLAlchemy==0.9.3
 dj-database-url==0.2.2
 django-cache-url==0.8.0
 django-debug-toolbar==1.0.1
 django-model-utils==2.0.2
 django-redis==3.5.1
+djorm-ext-pool==0.8.1
 factory-boy==2.3.1
 gunicorn==18.0
 hurl==2.1
