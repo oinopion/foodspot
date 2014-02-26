@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-22 20:54+0100\n"
+"POT-Creation-Date: 2014-02-26 19:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,16 +75,16 @@ msgstr "artykuł"
 msgid "articles"
 msgstr "artykuły"
 
-#: templates/base.html:13 templates/skeleton.html:10
+#: templates/base.html:14 templates/skeleton.html:10
 msgid "Page title"
 msgstr "Idziemy Jeść"
 
-#: templates/base.html:14
+#: templates/base.html:15
 msgid "Page blurb"
 msgstr ""
-"Gdzie dobrze zjeść w Krakowie.Subiektywny przewodnik Oli&nbsp;i&nbsp;Tomka"
+"Gdzie dobrze zjeść w Krakowie. Subiektywny przewodnik Oli&nbsp;i&nbsp;Tomka"
 
-#: templates/base.html:20
+#: templates/base.html:21
 msgid "All texts"
 msgstr "Lista wpisów"
 
