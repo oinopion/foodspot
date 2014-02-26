@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* purecss font override */
+/* pure css font override */
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"],
 .pure-g-r [class *= "pure-u"] {
@@ -23,7 +23,7 @@ h1 a, h2 a {
 }
 
 .sidebar {
-    background: rgb(61, 79, 93);
+    background: rgb(77, 77, 100);
     color: #fff;
 }
 
