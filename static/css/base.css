@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+/* purecss font override */
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    font-family: 'Lora', serif;
+}
+
 h1 a, h2 a {
     text-decoration: inherit;
     color: inherit;
@@ -26,7 +33,7 @@ h1 a, h2 a {
 }
 
 .brand h1 {
-    text-transform: uppercase;
+    line-height: 2em;
 }
 
 .brand h2 {
