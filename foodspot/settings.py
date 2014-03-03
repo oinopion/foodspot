@@ -1,4 +1,5 @@
 # Django settings for foodspot project
+from datetime import timedelta
 import os
 import configparser
 import dj_database_url
@@ -56,11 +57,13 @@ SECRET_KEY = config.get('general', 'secret_key')
 DATABASES = {
     'default': dj_database_url.parse(config.get('db', 'default'))
 }
+DATABASES['default']['CONN_MAX_AGE'] = timedelta(days=1).total_seconds()
 
 CACHES = {
     'default': django_cache_url.parse(config.get('cache', 'default'))
 }
-CACHES['default']['TIMEOUT'] = None
+CACHES['default']['TIMEOUT'] = timedelta(days=30).total_seconds()
+CACHES['default']['KEY_PREFIX'] = config.get('cache', 'prefix', fallback='')
 
 USE_I18N = True
 USE_L10N = True
