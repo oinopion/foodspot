@@ -1,0 +1,5 @@
+{% load cache %}
+{% load markdown_tags %}
+{% cache 36000000 article_text obj.cache_key %}
+    {% markdown obj.text %}
+{% endcache %}
