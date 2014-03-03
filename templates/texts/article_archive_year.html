@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load markdown_tags %}
 
 {% block title %}
-    All Texts | {{ block.super }}
+    {% trans "All texts" %} | {{ block.super }}
 {% endblock %}
-{% load i18n %}
 
 {% block content %}
     <section class="posts" xmlns="http://www.w3.org/1999/html">
