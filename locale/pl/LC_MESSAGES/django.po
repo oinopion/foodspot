@@ -82,7 +82,7 @@ msgstr "Idziemy Jeść"
 #: templates/base.html:15
 msgid "Page blurb"
 msgstr ""
-"Gdzie dobrze zjeść w Krakowie. Subiektywny przewodnik Oli&nbsp;i&nbsp;Tomka"
+"Gdzie dobrze zjeść w Krakowie. Subiektywny przewodnik Oli i Tomka"
 
 #: templates/base.html:21
 msgid "All texts"
