@@ -11,7 +11,17 @@ html, button, input, select, textarea,
     font-family: 'Lora', serif;
 }
 
-h1 a, h2 a {
+a {
+    color: rgb(71, 71, 163);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(176, 173, 198);
+}
+
+h1 a, h2 a, h1 a:hover, h2 a:hover {
     text-decoration: inherit;
     color: inherit;
 }
