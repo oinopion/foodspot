@@ -1,3 +1,5 @@
+from django import forms
+from django.db import models
 from django.contrib import admin
 from .models import Article
 
@@ -15,6 +17,11 @@ class ArticleAdmin(admin.ModelAdmin):
         'status_changed', 'modified',
     )
     actions = ['publish_articles']
+    formfield_overrides = {
+        models.TextField: {
+            'widget': forms.Textarea(attrs={'rows': 30, 'cols': 80})
+        },
+    }
 
     def publish_articles(self, request, queryset):
         count = queryset.count()
