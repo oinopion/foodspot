@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-26 19:46+0100\n"
+"POT-Creation-Date: 2014-03-08 19:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+
+#: foodspot/texts/feed.py:10 templates/base.html:13 templates/base.html.py:20
+#: templates/service.html:59 templates/skeleton.html:10
+msgid "Page title"
+msgstr "Idziemy Jeść"
+
+#: foodspot/texts/feed.py:11 templates/base.html:21
+msgid "Page blurb"
+msgstr "Gdzie dobrze zjeść w Krakowie. Subiektywny przewodnik Oli i Tomka"
 
 #: foodspot/texts/models.py:17
 msgid "draft"
@@ -59,32 +68,75 @@ msgstr "tekst"
 msgid "Use Markdown syntax."
 msgstr "Należy użyć składni Markdown."
 
-#: foodspot/texts/models.py:34
+#: foodspot/texts/models.py:35
 msgid "created at"
 msgstr "sworzony"
 
-#: foodspot/texts/models.py:35
+#: foodspot/texts/models.py:36
 msgid "last modified at"
 msgstr "ostatnio modyfikowany"
 
-#: foodspot/texts/models.py:43
+#: foodspot/texts/models.py:44
 msgid "article"
 msgstr "artykuł"
 
-#: foodspot/texts/models.py:44
+#: foodspot/texts/models.py:45
 msgid "articles"
 msgstr "artykuły"
 
-#: templates/base.html:14 templates/skeleton.html:10
-msgid "Page title"
-msgstr "Idziemy Jeść"
-
-#: templates/base.html:15
-msgid "Page blurb"
+#: templates/404.html:6
+msgid "Page not found"
 msgstr ""
-"Gdzie dobrze zjeść w Krakowie. Subiektywny przewodnik Oli i Tomka"
 
-#: templates/base.html:21
+#: templates/404.html:12
+msgid "No page found"
+msgstr "Nie odnaleziono strony"
+
+#: templates/404.html:15
+msgid ""
+"\n"
+"            Requested page was not found. We have been notified and will\n"
+"            fix it, if it's an error.\n"
+"        "
+msgstr ""
+"\n"
+"Nie możemy znaleźć strony, której szukasz. Zostaliśmy powiadomieni i "
+"sprawdzimy czy to nie błąd."
+
+#: templates/404.html:21 templates/500.html:22
+#, python-format
+msgid ""
+"\n"
+"            You can now go to <a href=\"%(home_url)s\">home page</a>\n"
+"            or try navigating <a href=\"#\" id=\"back-btn\">back</a>.\n"
+"        "
+msgstr ""
+"\n"
+"Póki co, możesz przejść na <a href=\"%(home_url)s\">stronę "
+"główną</a> lub spróbować <a href=\"#\" id=\"back-btn\">pójść wstecz</a>."
+
+#: templates/500.html:6
+msgid "Server Error"
+msgstr "Błąd serwera"
+
+#: templates/500.html:12
+msgid "Something went wrong and it's our fault"
+msgstr "Coś poszło nie tak. To nasza wina."
+
+#: templates/500.html:15
+msgid ""
+"\n"
+"            Apologies, but we can't give you this page, because of an\n"
+"            unhandled error. We have been notified about this and will fix "
+"it\n"
+"            soon.\n"
+"        "
+msgstr ""
+"\n"
+"Przepraszamy, ale nie jesteśmy w stanie wyświetlić strony której szukasz z "
+"powodu błędu. Zostaliśmy powiadomieni i niedługo to naprawimy."
+
+#: templates/base.html:27 templates/texts/article_archive_year.html:6
 msgid "All texts"
 msgstr "Lista wpisów"
 
