@@ -8,7 +8,8 @@
     <meta property="og:title" content="{{ article.title }}"/>
     <meta property="og:description" content="{{ article.excerpt }}"/>
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="{{ article.created|date:'c' }}" />
+    <meta property="article:published_time" content="{{ article.created|date:'c' }}" />
+    <meta property="article:modified_time" content="{{ article.modified|date:'c' }}" />
 {% endblock %}
 
 {% block content %}
