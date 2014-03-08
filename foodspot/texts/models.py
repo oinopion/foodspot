@@ -31,6 +31,7 @@ class Article(StatusModel):
     text = models.TextField(_('text'), help_text=_(
         'Use Markdown syntax.'
     ))
+
     created = AutoCreatedField(_('created at'), editable=True)
     modified = AutoLastModifiedField(_('last modified at'))
 

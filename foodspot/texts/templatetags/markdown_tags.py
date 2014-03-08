@@ -13,7 +13,7 @@ def render_markdown(text):
 
 
 class InstagramPattern(Pattern):
-    REDIRECT_URL = '//instagram.com/p/%s/media/?size=l'
+    REDIRECT_URL = 'https://instagram.com/p/%s/media/?size=l'
     PATTERN = r'\[instagram:(?P<id>[^\]]+)\]'
 
     def __init__(self, markdown_instance=None):

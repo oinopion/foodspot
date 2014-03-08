@@ -4,18 +4,14 @@
     {{ article.title }} | {{ block.super }}
 {% endblock %}
 
+{% block extra_head %}
+    <meta property="og:title" content="{{ article.title }}"/>
+    <meta property="og:description" content="{{ article.excerpt }}"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="{{ article.created|date:'c' }}" />
+{% endblock %}
+
 {% block content %}
     {% include 'texts/_post.html' %}
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'idziemyjesc';
-
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-
+    {% include '_disqus.html' %}
 {% endblock %}
