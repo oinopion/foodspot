@@ -49,6 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+    'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
 )
 
 ALLOWED_HOSTS = ['*']

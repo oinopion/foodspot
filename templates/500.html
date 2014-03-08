@@ -1,0 +1,37 @@
+{% extends 'service.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}
+    {% trans "Server Error" %} | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% url 'home' as home_url %}
+
+    <h2>{% trans "Something went wrong and it's our fault" %}</h2>
+    <a href="{{ home_url }}"><i class="logo"></i></a>
+    <p>
+        {% blocktrans %}
+            Apologies, but we can't give you this page, because of an
+            unhandled error. We have been notified about this and will fix it
+            soon.
+        {% endblocktrans %}
+    </p>
+    <p>
+        {% blocktrans %}
+            You can now go to <a href="{{ home_url }}">home page</a>
+            or try navigating <a href="#" id="back-btn">back</a>.
+        {% endblocktrans %}
+    </p>
+
+    <script>
+        (function () {
+            var backBtn = document.getElementById('back-btn');
+            backBtn.onclick = function () {
+                window.history.back();
+                return false;
+            }
+        })();
+    </script>
+{% endblock %}

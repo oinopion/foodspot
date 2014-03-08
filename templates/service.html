@@ -1,0 +1,69 @@
+{% extends 'skeleton.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'lib/pure-min.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <style>
+        html, button, input, select, textarea,
+        .pure-g [class *= "pure-u"],
+        .pure-g-r [class *= "pure-u"] {
+            font-family: 'Lora', serif;
+        }
+
+        body {
+            text-align: center;
+            margin: 0;
+        }
+
+        header {
+            background: rgb(77, 77, 100);
+            color: #fff;
+        }
+
+        header a, header a:hover {
+            text-decoration: inherit;
+            color: inherit;
+        }
+
+        section {
+            max-width: 35em;;
+            margin: 0 auto;
+        }
+
+        a {
+            color: rgb(71, 71, 163);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(176, 173, 198);
+        }
+
+        @media (min-width: 48em) {
+            i.logo {
+                display: block;
+                background: url({% static 'img/logo.png' %}) no-repeat 50%;
+                height: 140px;
+                margin: 10px 0;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <header class="pure-u-1">
+        <h1>
+            <a href="{{ home_url }}">{% trans "Page title" %}</a>
+        </h1>
+    </header>
+
+    <section class="pure-u-1">
+        {% block content %}
+        {% endblock %}
+    </section>
+
+
+{% endblock %}
