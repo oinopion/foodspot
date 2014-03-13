@@ -36,6 +36,6 @@ class InstagramPatternTest(TestCase):
         self.assertEqual('img', element.tag)
         self.assertEqual('instagram', element.attrib.get('class'))
         self.assertEqual(
-            '//instagram.com/p/hello/media/?size=l',
+            'https://instagram.com/p/hello/media/?size=l',
             element.get('src')
         )
