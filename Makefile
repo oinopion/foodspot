@@ -1,4 +1,4 @@
-PYTHON=`which python3.3`
+PYTHON=`which python3`
 
 build: deps statics
 
