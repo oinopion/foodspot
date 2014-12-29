@@ -48,7 +48,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 )
 
